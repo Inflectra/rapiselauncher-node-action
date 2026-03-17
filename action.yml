@@ -1,5 +1,5 @@
-name: 'Run RapiseLauncher on Node.js'
-description: 'Install Rapise (Node.js) & Run Test Set using RapiseLauncher'
+name: 'Run RapiseLauncher on Linux'
+description: 'Install Rapise (Node.js) & Run Spira Test Set using RapiseLauncher'
 author: 'Inflectra'
 
 branding:
