@@ -20,6 +20,8 @@ Store your Spira API Key as a GitHub Secret so it is never exposed in workflow f
 
 ## Quick Start
 
+To run a single test set:
+
 ```yaml
 - uses: Inflectra/rapiselauncher-node-action@v1
   with:
@@ -27,6 +29,20 @@ Store your Spira API Key as a GitHub Secret so it is never exposed in workflow f
     spira_username: 'myuser'
     spira_api_key: ${{ secrets.SPIRA_API_KEY }}
     spira_automation_host: GHA
+    rapise_params: |
+      g_browserLibrary=Selenium - ChromeHeadless
+```
+
+To run multiple test sets:
+
+```yaml
+- uses: Inflectra/rapiselauncher-node-action@v1
+  with:
+    spira_url: 'https://myserver.spiraservice.net/'
+    spira_username: 'myuser'
+    spira_api_key: ${{ secrets.SPIRA_API_KEY }}
+    spira_automation_host: GHA
+    spira_test_set_id: '925,1266'
     rapise_params: |
       g_browserLibrary=Selenium - ChromeHeadless
 ```
