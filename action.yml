@@ -22,7 +22,7 @@ inputs:
   spira_api_key:
     description: 'Spira API key (RSS Token). Not needed if spira_config is set.'
     required: true
-    default: '${{ secrets.SPIRA_API_KEY }}'
+    default: '{00000000-0000-0000-0000-000000000000}'
   spira_project_id:
     description: 'Spira Product/Project ID. Optional.'
     required: false
