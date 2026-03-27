@@ -59,6 +59,10 @@ inputs:
     description: 'Path to Git project (for Spira tests stored in Git)'
     required: false
     default: ''
+  report:
+    description: 'Path to file for JUnit XML results output'
+    required: false
+    default: 'rapise-test-results.xml'
   upload_artifacts:
     description: 'Upload artifacts (working folder) after execution'
     required: false
@@ -107,6 +111,7 @@ runs:
         INPUT_RAPISE_PARAMS: ${{ inputs.rapise_params }}
         INPUT_TIMEOUT_MINUTES: ${{ inputs.timeout_minutes }}
         INPUT_GIT_ROOT: ${{ inputs.git_root }}
+        INPUT_REPORT: ${{ inputs.report }}
 
     - name: Collect artifacts
       if: always() && inputs.upload_artifacts == 'true'

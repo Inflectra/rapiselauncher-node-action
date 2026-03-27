@@ -82,6 +82,7 @@ async function main() {
   let spiraAutomationHost = env("INPUT_SPIRA_AUTOMATION_HOST");
   const spiraConfig = env("INPUT_SPIRA_CONFIG");
   const rapiseParams = env("INPUT_RAPISE_PARAMS");
+  const reportPath = env("INPUT_REPORT");
   const timeoutMinutes = parseInt(env("INPUT_TIMEOUT_MINUTES", "0"), 10) || 0;
 
   // Parse full-form Spira URL: https://server/9/TestSet/925.aspx
@@ -162,6 +163,10 @@ async function main() {
   }
 
   cmdArgs.push("-t", spiraTestSetId);
+
+  if (reportPath) {
+    cmdArgs.push("--report", reportPath);
+  }
 
   if (rapiseParams) {
     for (const p of rapiseParams.split("\n")) {
