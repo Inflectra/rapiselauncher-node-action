@@ -23,7 +23,7 @@ Store your Spira API Key as a GitHub Secret so it is never exposed in workflow f
 To run a single test set:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v1
+- uses: Inflectra/rapiselauncher-node-action@v2
   with:
     spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
     spira_username: 'myuser'
@@ -36,7 +36,7 @@ To run a single test set:
 To run multiple test sets:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v1
+- uses: Inflectra/rapiselauncher-node-action@v2
   with:
     spira_url: 'https://myserver.spiraservice.net/'
     spira_username: 'myuser'
@@ -65,7 +65,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Inflectra/rapiselauncher-node-action@v1
+      - uses: Inflectra/rapiselauncher-node-action@v2
         with:
           spira_config: '${{ github.workspace }}/RepositoryConnection.xml'
           spira_test_set_id: '925,1266'
@@ -94,7 +94,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Inflectra/rapiselauncher-node-action@v1
+      - uses: Inflectra/rapiselauncher-node-action@v2
         with:
           spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
           spira_username: 'myuser'
@@ -123,7 +123,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Inflectra/rapiselauncher-node-action@v1
+      - uses: Inflectra/rapiselauncher-node-action@v2
         with:
           spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
           spira_username: 'myuser'
@@ -150,7 +150,7 @@ rapise_params: |
 Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v1
+- uses: Inflectra/rapiselauncher-node-action@v2
   with:
     spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
     spira_username: 'myuser'
@@ -163,7 +163,7 @@ Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 ### Specifying Rapise and Node.js Versions
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v1
+- uses: Inflectra/rapiselauncher-node-action@v2
   with:
     rapise_version: '9.0.35.24'
     node_version: '22.x'
@@ -175,7 +175,7 @@ Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 If your Rapise tests are stored in a Git repository connected to Spira, the action automatically sets `GITROOT` to `$GITHUB_WORKSPACE`. Override it with `git_root` if needed:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v1
+- uses: Inflectra/rapiselauncher-node-action@v2
   with:
     git_root: '${{ github.workspace }}/tests'
     # ... other inputs
