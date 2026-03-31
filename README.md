@@ -1,6 +1,6 @@
 # Inflectra/rapiselauncher-node-action
 
-A GitHub Action to install the cross-platform (Node.js) Rapise engine and run Rapise test sets stored in SpiraTest using RapiseLauncher.
+A GitHub Action to install the cross-platform (Node.js) Rapise engine and run Rapise test sets stored in SpiraTest/SpiraTeam/SpiraPlan using RapiseLauncher.
 
 Runs on both `ubuntu-latest` and `windows-latest` runners.
 
