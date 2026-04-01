@@ -23,28 +23,46 @@ Store your Spira API Key as a GitHub Secret so it is never exposed in workflow f
 To run a single test set:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v2
-  with:
-    spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
-    spira_username: 'myuser'
-    spira_api_key: ${{ secrets.SPIRA_API_KEY }}
-    spira_automation_host: GHA
-    rapise_params: |
-      g_browserLibrary=Selenium - ChromeHeadless
+name: Run Rapise Test Set
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Inflectra/rapiselauncher-node-action@v2
+        with:
+          spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
+          spira_username: 'myuser'
+          spira_api_key: ${{ secrets.SPIRA_API_KEY }}
+          spira_automation_host: GHA
+          rapise_params: |
+            g_browserLibrary=Selenium - ChromeHeadless
 ```
 
 To run multiple test sets:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v2
-  with:
-    spira_url: 'https://myserver.spiraservice.net/'
-    spira_username: 'myuser'
-    spira_api_key: ${{ secrets.SPIRA_API_KEY }}
-    spira_automation_host: GHA
-    spira_test_set_id: '925,1266'
-    rapise_params: |
-      g_browserLibrary=Selenium - ChromeHeadless
+name: Run Multiple Rapise Test Sets
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Inflectra/rapiselauncher-node-action@v2
+        with:
+          spira_url: 'https://myserver.spiraservice.net/'
+          spira_username: 'myuser'
+          spira_api_key: ${{ secrets.SPIRA_API_KEY }}
+          spira_automation_host: GHA
+          spira_test_set_id: '925,1266'
+          rapise_params: |
+            g_browserLibrary=Selenium - ChromeHeadless
 ```
 
 ## Usage
@@ -138,9 +156,9 @@ jobs:
 Use the `rapise_params` input to pass any number of `--param` values to RapiseLauncher. Each line becomes a separate `--param` flag:
 
 ```yaml
-rapise_params: |
-  g_browserLibrary=Selenium - ChromeHeadless
-  g_verboseLevel=3
+          rapise_params: |
+            g_browserLibrary=Selenium - ChromeHeadless
+            g_verboseLevel=3
 ```
 
 > **Note:** On headless Linux runners, always pass `g_browserLibrary=Selenium - ChromeHeadless` to ensure browser tests run without a display.
@@ -150,24 +168,24 @@ rapise_params: |
 Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v2
-  with:
-    spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
-    spira_username: 'myuser'
-    spira_api_key: ${{ secrets.SPIRA_API_KEY }}
-    timeout_minutes: 10
-    rapise_params: |
-      g_browserLibrary=Selenium - ChromeHeadless
+      - uses: Inflectra/rapiselauncher-node-action@v2
+        with:
+          spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
+          spira_username: 'myuser'
+          spira_api_key: ${{ secrets.SPIRA_API_KEY }}
+          timeout_minutes: 10
+          rapise_params: |
+            g_browserLibrary=Selenium - ChromeHeadless
 ```
 
 ### Specifying Rapise and Node.js Versions
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v2
-  with:
-    rapise_version: '9.0.35.24'
-    node_version: '22.x'
-    # ... other inputs
+      - uses: Inflectra/rapiselauncher-node-action@v2
+        with:
+          rapise_version: '9.0.35.37'
+          node_version: '22.x'
+          # ... other inputs
 ```
 
 ### Git Root for Spira Tests Stored in Git
@@ -175,10 +193,10 @@ Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 If your Rapise tests are stored in a Git repository connected to Spira, the action automatically sets `GITROOT` to `$GITHUB_WORKSPACE`. Override it with `git_root` if needed:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-node-action@v2
-  with:
-    git_root: '${{ github.workspace }}/tests'
-    # ... other inputs
+      - uses: Inflectra/rapiselauncher-node-action@v2
+        with:
+          git_root: '${{ github.workspace }}/tests'
+          # ... other inputs
 ```
 
 ### Artifacts
