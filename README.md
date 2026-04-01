@@ -219,7 +219,7 @@ upload_artifacts: 'false'
 | `spira_test_set_id` | | Test Set ID(s), comma-separated (e.g. `925,1266`). |
 | `spira_automation_host` | *(hostname)* | Automation Host Token. Defaults to runner hostname. |
 | `install_rapise` | `true` | Whether to install Rapise. |
-| `rapise_version` | `9.0.35.24` | Rapise version to install. |
+| `rapise_version` | `9.0.35.37` | Rapise version to install. |
 | `node_version` | `22.x` | Node.js version to set up. |
 | `rapise_params` | | Additional `--param` values, one per line. |
 | `timeout_minutes` | `0` | Execution timeout in minutes. `0` = no timeout. |
