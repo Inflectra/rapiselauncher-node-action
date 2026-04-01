@@ -86,6 +86,8 @@ async function main() {
   const timeoutMinutes = parseInt(env("INPUT_TIMEOUT_MINUTES", "0"), 10) || 0;
 
   // Parse full-form Spira URL: https://server/9/TestSet/925.aspx
+  // Normalize multiple slashes after the protocol (e.g. https://server//9/... -> https://server/9/...)
+  spiraUrl = spiraUrl.replace(/^(https?:\/\/)([^/]+)(\/\/+)/, "$1$2/");
   const urlMatch = spiraUrl.match(/^(https?:\/\/.+?)\/(\d+)\/TestSet\/(\d+)\.aspx$/);
   if (urlMatch) {
     spiraUrl = urlMatch[1] + "/";
