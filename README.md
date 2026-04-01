@@ -39,7 +39,7 @@ jobs:
           spira_api_key: ${{ secrets.SPIRA_API_KEY }}
           spira_automation_host: GHA
           rapise_params: |
-            g_browserLibrary=Selenium - ChromeHeadless
+            g_browserLibrary=Selenium - Chrome Headless
 ```
 
 To run multiple test sets:
@@ -62,7 +62,7 @@ jobs:
           spira_automation_host: GHA
           spira_test_set_id: '925,1266'
           rapise_params: |
-            g_browserLibrary=Selenium - ChromeHeadless
+            g_browserLibrary=Selenium - Chrome Headless
 ```
 
 ## Usage
@@ -88,7 +88,7 @@ jobs:
           spira_config: '${{ github.workspace }}/RepositoryConnection.xml'
           spira_test_set_id: '925,1266'
           rapise_params: |
-            g_browserLibrary=Selenium - ChromeHeadless
+            g_browserLibrary=Selenium - Chrome Headless
 ```
 
 When `spira_config` is provided, the `spira_url`, `spira_username`, `spira_api_key`, and `spira_automation_host` inputs are not needed — everything is read from the XML file.
@@ -119,7 +119,7 @@ jobs:
           spira_api_key: ${{ secrets.SPIRA_API_KEY }}
           spira_automation_host: GHA
           rapise_params: |
-            g_browserLibrary=Selenium - ChromeHeadless
+            g_browserLibrary=Selenium - Chrome Headless
 ```
 
 ### Running on Multiple Platforms
@@ -148,7 +148,7 @@ jobs:
           spira_api_key: ${{ secrets.SPIRA_API_KEY }}
           spira_automation_host: GHA
           rapise_params: |
-            g_browserLibrary=Selenium - ChromeHeadless
+            g_browserLibrary=Selenium - Chrome Headless
 ```
 
 ### Passing Additional Parameters
@@ -175,7 +175,7 @@ Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
           spira_api_key: ${{ secrets.SPIRA_API_KEY }}
           timeout_minutes: 10
           rapise_params: |
-            g_browserLibrary=Selenium - ChromeHeadless
+            g_browserLibrary=Selenium - Chrome Headless
 ```
 
 ### Specifying Rapise and Node.js Versions
